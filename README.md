@@ -1,3 +1,11 @@
+
+### Forked.
+#### 主要是兼容Azure OpenAI, 修改主要在app/api/common.ts
+#### 这个版本需要对接APIM，再到Azure OpenAI。
+#### OPENAI_API_KEY 为 azure APIM的key
+
+###
+<hr/>
 <div align="center">
 <img src="./docs/images/icon.svg" alt="icon"/>
 

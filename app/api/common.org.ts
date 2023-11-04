@@ -41,14 +41,12 @@ export async function requestOpenai(req: NextRequest) {
   );
 
   const fetchUrl = `${baseUrl}/${openaiPath}`;
-  console.log("[Fetch Url]", fetchUrl);
   const fetchOptions: RequestInit = {
     headers: {
       "Content-Type": "application/json",
       "Cache-Control": "no-store",
       // Authorization: authValue,
       "Ocp-Apim-Subscription-Key": `${OPENAI_API_KEY}`,
-      // "api-key": `${OPENAI_API_KEY}`,
       ...(process.env.OPENAI_ORG_ID && {
         "OpenAI-Organization": process.env.OPENAI_ORG_ID,
       }),
@@ -61,7 +59,6 @@ export async function requestOpenai(req: NextRequest) {
     duplex: "half",
     signal: controller.signal,
   };
-  console.log("[Fetch Options]", fetchOptions);
 
   // #1815 try to refuse gpt4 request
   if (DISABLE_GPT4 && req.body) {
